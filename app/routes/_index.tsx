@@ -6,7 +6,13 @@ import { json } from "@remix-run/node";
 import styles from "~/index.module.css";
 import { getPortfolio } from "~/models/api.server";
 
-export const meta: MetaFunction = () => {
+type LoaderData = Awaited<ReturnType<typeof getPortfolio>>;
+
+export const loader = async () => {
+  return json<LoaderData>(await getPortfolio());
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
   return [
     { title: "SeongMin Park" },
     {
@@ -17,18 +23,8 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-type LoaderData = {
-  data: Awaited<ReturnType<typeof getPortfolio>>;
-};
-
-export const loader = async () => {
-  return json<LoaderData>({
-    data: await getPortfolio(),
-  });
-};
-
 const Index = () => {
-  const { data } = useLoaderData() as LoaderData;
+  const { projects, awards } = useLoaderData() as LoaderData;
 
   return (
     <div className={styles.scroll}>
@@ -42,7 +38,7 @@ const Index = () => {
               <div className={styles.header}>
                 <img
                   alt="profile"
-                  src="https://assets.isamin.kr/icon/profile.png"
+                  src="https://assets.isamin.kr/profile.png"
                 />
                 <div>
                   <p>Hello, I'm</p>
@@ -141,20 +137,20 @@ const Index = () => {
               <div className={styles.section}>
                 <p className={styles.title}>Projects</p>
                 <div className={styles.projects}>
-                  {data.projects.map((project) => {
+                  {projects.map((project) => {
                     return (
                       <div key={project.id} className={styles.project}>
                         <div
                           className={styles.preview}
                           style={{
-                            backgroundImage: `url(https://assets.isamin.kr/icon/cover/${project.key}.webp)`,
+                            backgroundImage: `url(https://assets.isamin.kr/cover/${project.key}.webp)`,
                           }}
                         />
                         <div className={styles.info}>
                           <div
                             className={styles.thumbnail}
                             style={{
-                              backgroundImage: `url(https://assets.isamin.kr/icon/project/${project.key}.webp)`,
+                              backgroundImage: `url(https://assets.isamin.kr/project/${project.key}.webp)`,
                             }}
                           />
                           <div className={styles.text}>
@@ -172,7 +168,7 @@ const Index = () => {
               <div className={styles.section}>
                 <p className={styles.title}>Awards</p>
                 <div className={styles.awards}>
-                  {data.awards.map((award) => {
+                  {awards.map((award) => {
                     return (
                       <div key={award.id} className={styles.award}>
                         <p className={styles.name}>
