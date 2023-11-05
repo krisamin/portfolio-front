@@ -8,7 +8,7 @@ import { getPortfolio } from "~/models/api.server";
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "노비스민 :: 박성민 • 학생 개발자" },
+    { title: "SeongMin Park" },
     {
       name: "description",
       content:
