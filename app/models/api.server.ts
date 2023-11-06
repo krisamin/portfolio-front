@@ -27,18 +27,37 @@ export interface Award {
   projects: Project[];
 }
 
-interface Portfolio {
+export interface Portfolio {
   projects: Project[];
   teams: Team[];
   awards: Award[];
 }
 
-type PortfolioResponse = () => Promise<Portfolio>;
+export interface ProjectDetail {
+  info: Project;
+  content: string;
+}
+
+export type PortfolioResponse = () => Promise<Portfolio>;
 
 export const getPortfolio: PortfolioResponse = async () => {
-  const res = await fetch(
-    "https://api.isamin.kr"
-  ).then((res) => res.json());
+  const res = await fetch("https://api.isamin.kr").then((res) => res.json());
 
   return res;
-}
+};
+
+export type ProjectResponse = (key: string) => Promise<ProjectDetail>;
+
+export const getProject: ProjectResponse = async (key) => {
+  const res = await fetch(`https://api.isamin.kr/project/${key}`).then(
+    (res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw new Error("project not found");
+      }
+    },
+  );
+
+  return res;
+};

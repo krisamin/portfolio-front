@@ -12,9 +12,9 @@ export const loader = async () => {
   return json<LoaderData>(await getPortfolio());
 };
 
-export const meta: MetaFunction<typeof loader> = ({ data }) => {
+export const meta: MetaFunction = () => {
   return [
-    { title: "SeongMin Park" },
+    { title: "SeongMin Park • Portfolio" },
     {
       name: "description",
       content:
@@ -36,10 +36,7 @@ const Index = () => {
           <div className={styles.side}>
             <div className={styles.mix}>
               <div className={styles.header}>
-                <img
-                  alt="profile"
-                  src="https://assets.isamin.kr/profile.png"
-                />
+                <img alt="profile" src="https://assets.isamin.kr/profile.png" />
                 <div>
                   <p>Hello, I'm</p>
                   <p>SeongMin Park</p>
@@ -147,12 +144,7 @@ const Index = () => {
                           }}
                         />
                         <div className={styles.info}>
-                          <div
-                            className={styles.thumbnail}
-                            style={{
-                              backgroundImage: `url(https://assets.isamin.kr/project/${project.key}.webp)`,
-                            }}
-                          />
+                          <img className={styles.thumbnail} alt={`${project.key} thumbnail`} src={`https://assets.isamin.kr/project/${project.key}.webp`} />
                           <div className={styles.text}>
                             <p className={styles.name}>{project.name}</p>
                             <p className={styles.description}>
