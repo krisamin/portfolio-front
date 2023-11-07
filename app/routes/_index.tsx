@@ -48,7 +48,13 @@ const Index = () => {
                   <div
                     className={styles.icon}
                     style={{
-                      backgroundImage: `url("/icon/nest.svg")`,
+                      backgroundImage: `url("/icon/remix.svg")`,
+                    }}
+                  />
+                  <div
+                    className={styles.icon}
+                    style={{
+                      backgroundImage: `url("/icon/nestjs.svg")`,
                     }}
                   />
                   <div
