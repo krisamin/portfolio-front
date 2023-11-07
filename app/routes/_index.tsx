@@ -48,25 +48,29 @@ const Index = () => {
                   <div
                     className={styles.icon}
                     style={{
-                      backgroundImage: `url("/icon/remix.svg")`,
+                      maskImage: `url("/icon/remix.svg")`,
+                      WebkitMaskImage: `url("/icon/remix.svg")`,
                     }}
                   />
                   <div
                     className={styles.icon}
                     style={{
-                      backgroundImage: `url("/icon/nestjs.svg")`,
+                      maskImage: `url("/icon/nestjs.svg")`,
+                      WebkitMaskImage: `url("/icon/nestjs.svg")`,
                     }}
                   />
                   <div
                     className={styles.icon}
                     style={{
-                      backgroundImage: `url("/icon/react.svg")`,
+                      maskImage: `url("/icon/react.svg")`,
+                      WebkitMaskImage: `url("/icon/react.svg")`,
                     }}
                   />
                   <div
                     className={styles.icon}
                     style={{
-                      backgroundImage: `url("/icon/swift.svg")`,
+                      maskImage: `url("/icon/swift.svg")`,
+                      WebkitMaskImage: `url("/icon/swift.svg")`,
                     }}
                   />
                 </div>
@@ -83,7 +87,8 @@ const Index = () => {
                   <div
                     className={styles.icon}
                     style={{
-                      backgroundImage: `url("/icon/github.svg")`,
+                      maskImage: `url("/icon/github.svg")`,
+                      WebkitMaskImage: `url("/icon/github.svg")`,
                     }}
                   />
                   <p>krisamin</p>
@@ -96,7 +101,8 @@ const Index = () => {
                   <div
                     className={styles.icon}
                     style={{
-                      backgroundImage: `url("/icon/instagram.svg")`,
+                      maskImage: `url("/icon/instagram.svg")`,
+                      WebkitMaskImage: `url("/icon/instagram.svg")`,
                     }}
                   />
                   <p>@kr.isamin</p>
@@ -109,7 +115,8 @@ const Index = () => {
                   <div
                     className={styles.icon}
                     style={{
-                      backgroundImage: `url("/icon/email.svg")`,
+                      maskImage: `url("/icon/email.svg")`,
+                      WebkitMaskImage: `url("/icon/email.svg")`,
                     }}
                   />
                   <p>admin@isamin.kr</p>
