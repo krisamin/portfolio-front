@@ -6,6 +6,9 @@ import { json } from "@remix-run/node";
 import styles from "~/index.module.css";
 import { getPortfolio } from "~/models/api.server";
 
+import skills from "~/data/skills.json";
+import links from "~/data/links.json";
+
 type LoaderData = Awaited<ReturnType<typeof getPortfolio>>;
 
 export const loader = async () => {
@@ -45,82 +48,41 @@ const Index = () => {
               <div className={styles.section}>
                 <p className={styles.title}>Skills</p>
                 <div className={styles.icons}>
-                  <div
-                    className={styles.icon}
-                    style={{
-                      maskImage: `url("/icon/remix.svg")`,
-                      WebkitMaskImage: `url("/icon/remix.svg")`,
-                    }}
-                  />
-                  <div
-                    className={styles.icon}
-                    style={{
-                      maskImage: `url("/icon/nestjs.svg")`,
-                      WebkitMaskImage: `url("/icon/nestjs.svg")`,
-                    }}
-                  />
-                  <div
-                    className={styles.icon}
-                    style={{
-                      maskImage: `url("/icon/react.svg")`,
-                      WebkitMaskImage: `url("/icon/react.svg")`,
-                    }}
-                  />
-                  <div
-                    className={styles.icon}
-                    style={{
-                      maskImage: `url("/icon/swift.svg")`,
-                      WebkitMaskImage: `url("/icon/swift.svg")`,
-                    }}
-                  />
+                  {/* TODO: split component */}
+                  {skills.map((skill, index) => (
+                    <div
+                      key={index}
+                      className={styles.icon}
+                      style={{
+                        maskImage: `url("/icon/${skill.icon}.svg")`,
+                        WebkitMaskImage: `url("/icon/${skill.icon}.svg")`,
+                      }}
+                    />
+                  ))}
                 </div>
               </div>
             </div>
             <div className={styles.section}>
               <p className={styles.title}>Links</p>
               <div className={styles.links}>
-                <a
-                  className={styles.link}
-                  href="https://github.com/krisamin"
-                  target="_blank"
-                  rel="noreferrer">
-                  <div
-                    className={styles.icon}
-                    style={{
-                      maskImage: `url("/icon/github.svg")`,
-                      WebkitMaskImage: `url("/icon/github.svg")`,
-                    }}
-                  />
-                  <p>krisamin</p>
-                </a>
-                <a
-                  className={styles.link}
-                  href="https://instagram.com/kr.isamin"
-                  target="_blank"
-                  rel="noreferrer">
-                  <div
-                    className={styles.icon}
-                    style={{
-                      maskImage: `url("/icon/instagram.svg")`,
-                      WebkitMaskImage: `url("/icon/instagram.svg")`,
-                    }}
-                  />
-                  <p>@kr.isamin</p>
-                </a>
-                <a
-                  className={styles.link}
-                  href="mailto:admin@isamin.kr"
-                  target="_blank"
-                  rel="noreferrer">
-                  <div
-                    className={styles.icon}
-                    style={{
-                      maskImage: `url("/icon/email.svg")`,
-                      WebkitMaskImage: `url("/icon/email.svg")`,
-                    }}
-                  />
-                  <p>admin@isamin.kr</p>
-                </a>
+                {/* TODO: split component */}
+                {links.map((link, index) => (
+                  <a
+                    key={index}
+                    className={styles.link}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer">
+                    <div
+                      className={styles.icon}
+                      style={{
+                        maskImage: `url("/icon/${link.icon}.svg")`,
+                        WebkitMaskImage: `url("/icon/${link.icon}.svg")`,
+                      }}
+                    />
+                    <p>{link.name}</p>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
@@ -147,6 +109,7 @@ const Index = () => {
               <div className={styles.section}>
                 <p className={styles.title}>Projects</p>
                 <div className={styles.projects}>
+                  {/* TODO: split component */}
                   {projects.map((project) => {
                     return (
                       <div key={project.id} className={styles.project}>
@@ -157,7 +120,11 @@ const Index = () => {
                           }}
                         />
                         <div className={styles.info}>
-                          <img className={styles.thumbnail} alt={`${project.key} thumbnail`} src={`https://assets.isamin.kr/project/${project.key}.webp`} />
+                          <img
+                            className={styles.thumbnail}
+                            alt={`${project.key} thumbnail`}
+                            src={`https://assets.isamin.kr/project/${project.key}.webp`}
+                          />
                           <div className={styles.text}>
                             <p className={styles.name}>{project.name}</p>
                             <p className={styles.description}>
@@ -173,6 +140,7 @@ const Index = () => {
               <div className={styles.section}>
                 <p className={styles.title}>Awards</p>
                 <div className={styles.awards}>
+                  {/* TODO: split component */}
                   {awards.map((award) => {
                     return (
                       <div key={award.id} className={styles.award}>

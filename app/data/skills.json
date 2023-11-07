@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Remix",
+    "icon": "remix"
+  },
+  {
+    "name": "NestJS",
+    "icon": "nestjs"
+  },
+  {
+    "name": "React",
+    "icon": "react"
+  },
+  {
+    "name": "Swift",
+    "icon": "swift"
+  }
+]
