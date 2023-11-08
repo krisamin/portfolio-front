@@ -153,7 +153,7 @@ const Index = () => {
                               .filter((v) => v)
                               .join(" - "),
                             award.by,
-                            award.date,
+                            award.date.replace("0000-00-00", "")
                           ]
                             .filter((v) => v)
                             .map((value, index) => {
