@@ -32,7 +32,7 @@ export const meta: MetaFunction = () => {
     },
     {
       property: "og:url",
-      content: "https://isamin.kr",
+      content: "https://portfolio.isamin.kr",
     },
     {
       property: "og:image",
