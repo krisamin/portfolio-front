@@ -20,8 +20,35 @@ export const meta: MetaFunction = () => {
     { title: "SeongMin Park • Portfolio" },
     {
       name: "description",
-      content:
-        "많은 것을 시도하고 다양한것을 해보며 재미있게 살고있는 노비스민이라는 닉네임으로 활동중인 박성민입니다",
+      content: "Beyond Experience, Embark on a Journey of Growth Together.",
+    },
+    {
+      property: "og:title",
+      content: "SeongMin Park • Portfolio",
+    },
+    {
+      property: "og:description",
+      content: "Beyond Experience, Embark on a Journey of Growth Together.",
+    },
+    {
+      property: "og:url",
+      content: "https://isamin.kr",
+    },
+    {
+      property: "og:image",
+      content: "https://assets.isamin.kr/profile.png",
+    },
+    {
+      property: "og:image:type",
+      content: "image/png",
+    },
+    {
+      property: "og:image:width",
+      content: "512",
+    },
+    {
+      property: "og:image:height",
+      content: "512",
     },
   ];
 };
@@ -92,7 +119,7 @@ const Index = () => {
                 <p className={styles.title}>Introduction</p>
                 <div className={styles.introduction}>
                   <p className={styles.slogun}>
-                    Beyond experience, Start a journey of growing together.
+                    Beyond Experience, Embark on a Journey of Growth Together.
                   </p>
                   <p className={styles.description}>
                     Hello, I am Park Seong Min, a second-year student at KDMHS,
@@ -153,7 +180,7 @@ const Index = () => {
                               .filter((v) => v)
                               .join(" - "),
                             award.by,
-                            award.date.replace("0000-00-00", "")
+                            award.date.replace("0000-00-00", ""),
                           ]
                             .filter((v) => v)
                             .map((value, index) => {

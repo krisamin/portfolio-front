@@ -20,6 +20,8 @@ const App = () => {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#f57b51" />
+        <meta name="keywords" content="노비스민,novicemin,이즈어민,isamin,박성민,parkseongmin,seongminpark,포트폴리오" />
         <Meta />
         <Links />
       </head>
