@@ -159,8 +159,10 @@
 
 @media screen and (max-width: 1080px) {
   .side .mix .icon {
-    transform: scale(calc(30 / 36));
-    margin: -3px
+    width: 30px;
+    height: 30px;
+    mask-size: 30px;
+    -webkit-mask-size: 30px;
   }
 }
 
