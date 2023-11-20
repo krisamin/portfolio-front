@@ -1,4 +1,4 @@
-@import url(https://fonts.2w.vc/pretendard/static/font.css);
+@import url(https://fonts.2w.vc/wanted-sans/static/font.css);
 
 :root {
   --background: 255, 255, 255;
@@ -49,7 +49,7 @@
   padding: 0;
   box-sizing: border-box;
 
-  font-family: 'Pretendard', sans-serif;
+  font-family: 'Wanted Sans', sans-serif;
 }
 
 html, body {
