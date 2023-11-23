@@ -276,6 +276,8 @@
 }
 
 .content .projects .project {
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   border-width: 1px;
   border-style: solid;
@@ -360,6 +362,8 @@
 }
 
 .content .awards .award {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
   border-radius: 8px;
   border-width: 1px;

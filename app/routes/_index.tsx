@@ -139,7 +139,7 @@ const Index = () => {
                   {/* TODO: split component */}
                   {projects.map((project) => {
                     return (
-                      <div key={project.id} className={styles.project}>
+                      <a key={project.id} className={styles.project} href={`https://notion.isamin.kr/${project.id.replaceAll("-", "")}`} target="_blank" rel="noreferrer">
                         <div
                           className={styles.preview}
                           style={{
@@ -159,7 +159,7 @@ const Index = () => {
                             </p>
                           </div>
                         </div>
-                      </div>
+                      </a>
                     );
                   })}
                 </div>
@@ -170,7 +170,7 @@ const Index = () => {
                   {/* TODO: split component */}
                   {awards.map((award) => {
                     return (
-                      <div key={award.id} className={styles.award}>
+                      <a key={award.id} className={styles.award} href={`https://notion.isamin.kr/${award.id.replaceAll("-", "")}`} target="_blank" rel="noreferrer">
                         <p className={styles.name}>
                           {award.name} {award.period}
                         </p>
@@ -198,7 +198,7 @@ const Index = () => {
                               }
                             })}
                         </div>
-                      </div>
+                      </a>
                     );
                   })}
                 </div>
