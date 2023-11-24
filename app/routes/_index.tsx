@@ -1,34 +1,53 @@
-import type { MetaFunction } from "@remix-run/node";
+import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
+import acceptLanguage from "accept-language-parser";
 
 import styles from "~/index.module.css";
 import { getPortfolio } from "~/models/api.server";
 
 import skills from "~/data/skills.json";
 import links from "~/data/links.json";
+import strings from "~/data/strings.json";
 
-type LoaderData = Awaited<ReturnType<typeof getPortfolio>>;
-
-export const loader = async () => {
-  return json<LoaderData>(await getPortfolio());
+type LoaderData = Awaited<ReturnType<typeof getPortfolio>> & {
+  language: "ko" | "en";
 };
 
-export const meta: MetaFunction = () => {
+export const loader: LoaderFunction = async ({ request }) => {
+  const languages = acceptLanguage.parse(
+    request.headers.get("Accept-Language") as string,
+  );
+  const language = languages[0]?.code
+    ? languages[0].code === "ko"
+      ? "ko"
+      : "en"
+    : "ko";
+
+  return json<LoaderData>({
+    ...(await getPortfolio()),
+    language: language,
+  });
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  const { language } = data as LoaderData;
+  console.log(language);
+
   return [
-    { title: "SeongMin Park • Portfolio" },
+    { title: strings.meta_title[language] },
     {
       name: "description",
-      content: "Beyond Experience, Embark on a Journey of Growth Together.",
+      content: strings.introduction_title[language],
     },
     {
       property: "og:title",
-      content: "SeongMin Park • Portfolio",
+      content: strings.meta_title[language],
     },
     {
       property: "og:description",
-      content: "Beyond Experience, Embark on a Journey of Growth Together.",
+      content: strings.introduction_title[language],
     },
     {
       property: "og:url",
@@ -54,13 +73,13 @@ export const meta: MetaFunction = () => {
 };
 
 const Index = () => {
-  const { projects, awards } = useLoaderData() as LoaderData;
+  const { projects, awards, language } = useLoaderData() as LoaderData;
 
   return (
     <div className={styles.scroll}>
       <div className={styles.container}>
         <div className={styles.top}>
-          <p>Portfolio</p>
+          <p>{strings.portfolio[language]}</p>
         </div>
         <div className={styles.window}>
           <div className={styles.side}>
@@ -68,12 +87,12 @@ const Index = () => {
               <div className={styles.header}>
                 <img alt="profile" src="https://assets.isamin.kr/profile.png" />
                 <div>
-                  <p>Hello, I'm</p>
-                  <p>SeongMin Park</p>
+                  <p>{strings.hello[language]}</p>
+                  <p>{strings.name[language]}</p>
                 </div>
               </div>
               <div className={styles.section}>
-                <p className={styles.title}>Skills</p>
+                <p className={styles.title}>{strings.skills[language]}</p>
                 <div className={styles.icons}>
                   {/* TODO: split component */}
                   {skills.map((skill, index) => (
@@ -90,7 +109,7 @@ const Index = () => {
               </div>
             </div>
             <div className={styles.section}>
-              <p className={styles.title}>Links</p>
+              <p className={styles.title}>{strings.links[language]}</p>
               <div className={styles.links}>
                 {/* TODO: split component */}
                 {links.map((link, index) => (
@@ -116,30 +135,31 @@ const Index = () => {
           <div className={styles.content}>
             <div className={styles.inner}>
               <div className={styles.section}>
-                <p className={styles.title}>Introduction</p>
+                <p className={styles.title}>{strings.introduction[language]}</p>
                 <div className={styles.introduction}>
                   <p className={styles.slogun}>
-                    Beyond Experience, Embark on a Journey of Growth Together.
+                    {strings.introduction_title[language]}
                   </p>
                   <p className={styles.description}>
-                    Hello, I am Park Seong Min, a second-year student at KDMHS,
-                    currently active as a leader of DIMIGOIN. After awarding 1st
-                    prize in KCF Hackathon, I founded a team called "Semicolon".
-                    During the Corona period, We participated in civic-hacking
-                    by conducting projects such as “Uvirus” and “Mask Finder.”
-                    Through this, I gained various experiences and communicated
-                    with many people. I want to continue to grow through various
-                    experiences in the future.
+                    {strings.introduction_content[language]}
                   </p>
                 </div>
               </div>
               <div className={styles.section}>
-                <p className={styles.title}>Projects</p>
+                <p className={styles.title}>{strings.projects[language]}</p>
                 <div className={styles.projects}>
                   {/* TODO: split component */}
                   {projects.map((project) => {
                     return (
-                      <a key={project.id} className={styles.project} href={`https://notion.isamin.kr/${project.id.replaceAll("-", "")}`} target="_blank" rel="noreferrer">
+                      <a
+                        key={project.id}
+                        className={styles.project}
+                        href={`https://notion.isamin.kr/${project.id.replaceAll(
+                          "-",
+                          "",
+                        )}`}
+                        target="_blank"
+                        rel="noreferrer">
                         <div
                           className={styles.preview}
                           style={{
@@ -165,12 +185,20 @@ const Index = () => {
                 </div>
               </div>
               <div className={styles.section}>
-                <p className={styles.title}>Awards</p>
+                <p className={styles.title}>{strings.awards[language]}</p>
                 <div className={styles.awards}>
                   {/* TODO: split component */}
                   {awards.map((award) => {
                     return (
-                      <a key={award.id} className={styles.award} href={`https://notion.isamin.kr/${award.id.replaceAll("-", "")}`} target="_blank" rel="noreferrer">
+                      <a
+                        key={award.id}
+                        className={styles.award}
+                        href={`https://notion.isamin.kr/${award.id.replaceAll(
+                          "-",
+                          "",
+                        )}`}
+                        target="_blank"
+                        rel="noreferrer">
                         <p className={styles.name}>
                           {award.name} {award.period}
                         </p>

@@ -137,6 +137,7 @@
 
 .side .header div p:last-child {
   font-weight: 700;
+  width: 260px;
 }
 
 .side .mix .icons {
