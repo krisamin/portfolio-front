@@ -2,7 +2,9 @@ export interface Project {
   id: string;
   key: string;
   name: string;
+  name_en: string;
   description: string;
+  description_en: string;
   teams: Team[];
   awards: Award[];
 }
@@ -11,7 +13,7 @@ export interface Team {
   id: string;
   key: string;
   name: string;
-  description: string;
+  name_en: string;
   projects: Project[];
   awards: Award[];
 }

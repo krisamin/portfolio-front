@@ -15,6 +15,9 @@ type LoaderData = Awaited<ReturnType<typeof getPortfolio>> & {
   language: "ko" | "en";
 };
 
+type Name = "name" | "name_en";
+type Description = "description" | "description_en";
+
 export const loader: LoaderFunction = async ({ request }) => {
   const languages = acceptLanguage.parse(
     request.headers.get("Accept-Language") as string,
@@ -173,9 +176,17 @@ const Index = () => {
                             src={`https://assets.isamin.kr/project/${project.key}.webp`}
                           />
                           <div className={styles.text}>
-                            <p className={styles.name}>{project.name}</p>
+                            <p className={styles.name}>
+                              {project[strings.key_name[language] as Name]}
+                            </p>
                             <p className={styles.description}>
-                              {project.description}
+                              {
+                                project[
+                                  strings.key_description[
+                                    language
+                                  ] as Description
+                                ]
+                              }
                             </p>
                           </div>
                         </div>
@@ -204,7 +215,14 @@ const Index = () => {
                         </p>
                         <div className={styles.description}>
                           {[
-                            [award.teams[0]?.name, award.projects[0]?.name]
+                            [
+                              award.teams[0]?.[
+                                strings.key_name[language] as Name
+                              ],
+                              award.projects[0]?.[
+                                strings.key_name[language] as Name
+                              ],
+                            ]
                               .filter((v) => v)
                               .join(" - "),
                             award.by,
