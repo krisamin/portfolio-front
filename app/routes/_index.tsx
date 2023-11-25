@@ -150,7 +150,7 @@ const Index = () => {
               </div>
               <div className={styles.section}>
                 <p className={styles.title}>{strings.projects[language]}</p>
-                <div className={styles.projects}>
+                <div className={[styles.projects, styles[language]].join(" ")}>
                   {/* TODO: split component */}
                   {projects.map((project) => {
                     return (
