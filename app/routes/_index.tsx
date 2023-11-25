@@ -1,5 +1,6 @@
 import type { LoaderFunction, MetaFunction } from "@remix-run/node";
 
+import React from "react";
 import { useLoaderData } from "@remix-run/react";
 import { json } from "@remix-run/node";
 import acceptLanguage from "accept-language-parser";
@@ -11,8 +12,9 @@ import skills from "~/data/skills.json";
 import links from "~/data/links.json";
 import strings from "~/data/strings.json";
 
+type Language = "ko" | "en";
 type LoaderData = Awaited<ReturnType<typeof getPortfolio>> & {
-  language: "ko" | "en";
+  language: Language;
 };
 
 type Name = "name" | "name_en";
@@ -78,11 +80,24 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 const Index = () => {
   const { projects, awards, language } = useLoaderData() as LoaderData;
 
+  const [currentLanguage, setCurrentLanguage] =
+    React.useState<Language>(language);
+
   return (
     <div className={styles.scroll}>
       <div className={styles.container}>
         <div className={styles.top}>
-          <p>{strings.portfolio[language]}</p>
+          <p>{strings.portfolio[currentLanguage]}</p>
+          <div className={styles.divider} />
+          <div
+            className={styles.language}
+            style={{
+              backgroundImage: `url("/icon/${strings.language_change[currentLanguage]}.svg")`,
+            }}
+            onClick={() => {
+              setCurrentLanguage(currentLanguage === "ko" ? "en" : "ko");
+            }}
+          />
         </div>
         <div className={styles.window}>
           <div className={styles.side}>
@@ -90,12 +105,14 @@ const Index = () => {
               <div className={styles.header}>
                 <img alt="profile" src="https://assets.isamin.kr/profile.png" />
                 <div>
-                  <p>{strings.hello[language]}</p>
-                  <p>{strings.name[language]}</p>
+                  <p>{strings.hello[currentLanguage]}</p>
+                  <p>{strings.name[currentLanguage]}</p>
                 </div>
               </div>
               <div className={styles.section}>
-                <p className={styles.title}>{strings.skills[language]}</p>
+                <p className={styles.title}>
+                  {strings.skills[currentLanguage]}
+                </p>
                 <div className={styles.icons}>
                   {/* TODO: split component */}
                   {skills.map((skill, index) => (
@@ -112,7 +129,7 @@ const Index = () => {
               </div>
             </div>
             <div className={styles.section}>
-              <p className={styles.title}>{strings.links[language]}</p>
+              <p className={styles.title}>{strings.links[currentLanguage]}</p>
               <div className={styles.links}>
                 {/* TODO: split component */}
                 {links.map((link, index) => (
@@ -138,19 +155,26 @@ const Index = () => {
           <div className={styles.content}>
             <div className={styles.inner}>
               <div className={styles.section}>
-                <p className={styles.title}>{strings.introduction[language]}</p>
+                <p className={styles.title}>
+                  {strings.introduction[currentLanguage]}
+                </p>
                 <div className={styles.introduction}>
                   <p className={styles.slogun}>
-                    {strings.introduction_title[language]}
+                    {strings.introduction_title[currentLanguage]}
                   </p>
                   <p className={styles.description}>
-                    {strings.introduction_content[language]}
+                    {strings.introduction_content[currentLanguage]}
                   </p>
                 </div>
               </div>
               <div className={styles.section}>
-                <p className={styles.title}>{strings.projects[language]}</p>
-                <div className={[styles.projects, styles[language]].join(" ")}>
+                <p className={styles.title}>
+                  {strings.projects[currentLanguage]}
+                </p>
+                <div
+                  className={[styles.projects, styles[currentLanguage]].join(
+                    " ",
+                  )}>
                   {/* TODO: split component */}
                   {projects.map((project) => {
                     return (
@@ -177,13 +201,17 @@ const Index = () => {
                           />
                           <div className={styles.text}>
                             <p className={styles.name}>
-                              {project[strings.key_name[language] as Name]}
+                              {
+                                project[
+                                  strings.key_name[currentLanguage] as Name
+                                ]
+                              }
                             </p>
                             <p className={styles.description}>
                               {
                                 project[
                                   strings.key_description[
-                                    language
+                                    currentLanguage
                                   ] as Description
                                 ]
                               }
@@ -196,7 +224,9 @@ const Index = () => {
                 </div>
               </div>
               <div className={styles.section}>
-                <p className={styles.title}>{strings.awards[language]}</p>
+                <p className={styles.title}>
+                  {strings.awards[currentLanguage]}
+                </p>
                 <div className={styles.awards}>
                   {/* TODO: split component */}
                   {awards.map((award) => {
@@ -217,10 +247,10 @@ const Index = () => {
                           {[
                             [
                               award.teams[0]?.[
-                                strings.key_name[language] as Name
+                                strings.key_name[currentLanguage] as Name
                               ],
                               award.projects[0]?.[
-                                strings.key_name[language] as Name
+                                strings.key_name[currentLanguage] as Name
                               ],
                             ]
                               .filter((v) => v)

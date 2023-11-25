@@ -36,17 +36,24 @@
   }
 }
 
-.top::after {
+.top p {
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.top div.divider {
   flex: 1;
-  content: '';
   height: 1px;
   background-color: rgb(var(--color));
   border-radius: 1px;
 }
 
-.top p {
-  font-weight: 400;
-  font-size: 28px;
+.top div.language {
+  width: 32px;
+  height: 32px;
+  background-position: 50% 50%;
+  background-size: contain;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1080px) {

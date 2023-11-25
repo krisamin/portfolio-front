@@ -7,6 +7,10 @@
     "ko": "포트폴리오",
     "en": "Portfolio"
   },
+  "language_change": {
+    "ko": "en",
+    "en": "ko"
+  },
   "skills": {
     "ko": "기술",
     "en": "Skills"
