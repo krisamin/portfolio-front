@@ -154,7 +154,7 @@ const Index = () => {
           </div>
           <div className={styles.content}>
             <div className={styles.inner}>
-              <div className={styles.section}>
+              {/* <div className={styles.section}>
                 <p className={styles.title}>
                   {strings.introduction[currentLanguage]}
                 </p>
@@ -166,7 +166,7 @@ const Index = () => {
                     {strings.introduction_content[currentLanguage]}
                   </p>
                 </div>
-              </div>
+              </div> */}
               <div className={styles.section}>
                 <p className={styles.title}>
                   {strings.projects[currentLanguage]}
