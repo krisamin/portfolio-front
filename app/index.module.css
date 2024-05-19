@@ -3,7 +3,7 @@
   height: 100%;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .scroll {
     display: block;
     overflow-y: scroll;
@@ -15,7 +15,7 @@
   height: 100%;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .container {
     height: fit-content;
   }
@@ -29,7 +29,7 @@
   opacity: .7;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .top {
     gap: 20px;
     padding: 24px 20px 0 24px;
@@ -56,7 +56,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .top p {
     font-size: 20px;
   }
@@ -68,7 +68,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .window {
     flex-direction: column;
   }
@@ -81,7 +81,7 @@
   gap: 72px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .side {
     padding: 24px;
     padding-top: 48px;
@@ -97,7 +97,7 @@
   gap: 24px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .side .header {
     flex-direction: row;
     align-items: center;
@@ -111,7 +111,7 @@
   border-radius: 12px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .side .header img {
     width: 72px;
     height: 72px;
@@ -127,7 +127,7 @@
   font-size: 36px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .side .header div p {
     font-size: 28px;
   }
@@ -153,7 +153,7 @@
   gap: 24px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .side .mix .icons {
     gap: 16px;
   }
@@ -165,7 +165,7 @@
   background-color: rgb(var(--color));
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .side .mix .icon {
     width: 30px;
     height: 30px;
@@ -200,7 +200,7 @@
   gap: 24px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .section {
     gap: 12px;
   }
@@ -212,7 +212,7 @@
   opacity: .5;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .section > .title {
     font-size: 14px;
   }
@@ -229,7 +229,7 @@
   gap: 72px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .inner {
     padding: 24px;
     padding-bottom: 48px;
@@ -241,7 +241,7 @@
   gap: 24px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .introduction {
     gap: 12px;
   }
@@ -252,7 +252,7 @@
   font-size: 28px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .introduction .slogun {
     font-size: 20px;
   }
@@ -265,7 +265,7 @@
   opacity: .7;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .introduction .description {
     font-size: 16px;
   }
@@ -273,12 +273,12 @@
 
 .content .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   gap: 16px;
 }
 
 .content .projects.en {
-  grid-template-columns: repeat(auto-fill, minmax(540px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
 }
 
 @media screen and (max-width: 800px) {
@@ -312,7 +312,7 @@
   gap: 12px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .projects .project .info {
     padding: 14px;
   }
@@ -327,7 +327,7 @@
   background-size: cover;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .projects .project .info .thumbnail {
     width: 46px;
     height: 46px;
@@ -343,7 +343,7 @@
   font-size: 18px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .projects .project .info .name {
     font-size: 16px;
   }
@@ -355,7 +355,7 @@
   opacity: .7;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .projects .project .info .description {
     font-size: 14px;
   }
@@ -384,7 +384,7 @@
   padding: 20px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .awards .award {
     padding: 14px;
   }
@@ -395,7 +395,7 @@
   font-size: 20px;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .awards .award .name {
     font-size: 18px;
   }
@@ -412,7 +412,7 @@
   opacity: .7;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1100px) {
   .content .awards .award .description > p {
     font-size: 14px;
   }
