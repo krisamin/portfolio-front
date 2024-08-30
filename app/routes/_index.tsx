@@ -60,11 +60,11 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     },
     {
       property: "og:image",
-      content: "https://assets.isamin.kr/profile.png",
+      content: "https://assets.isamin.kr/profile.jpg",
     },
     {
       property: "og:image:type",
-      content: "image/png",
+      content: "image/jpeg",
     },
     {
       property: "og:image:width",
@@ -103,7 +103,7 @@ const Index = () => {
           <div className={styles.side}>
             <div className={styles.mix}>
               <div className={styles.header}>
-                <img alt="profile" src="https://assets.isamin.kr/profile.png" />
+                <img alt="profile" src="https://assets.isamin.kr/profile.jpg" />
                 <div>
                   <p>{strings.hello[currentLanguage]}</p>
                   <p>{strings.name[currentLanguage]}</p>
