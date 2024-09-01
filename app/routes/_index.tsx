@@ -181,7 +181,7 @@ const Index = () => {
                       <a
                         key={project.id}
                         className={styles.project}
-                        href={`https://notion.isamin.kr/${project.id.replaceAll(
+                        href={`https://krisamin.notion.site/${project.id.replaceAll(
                           "-",
                           "",
                         )}`}
@@ -234,7 +234,7 @@ const Index = () => {
                       <a
                         key={award.id}
                         className={styles.award}
-                        href={`https://notion.isamin.kr/${award.id.replaceAll(
+                        href={`https://krisamin.notion.site/${award.id.replaceAll(
                           "-",
                           "",
                         )}`}
