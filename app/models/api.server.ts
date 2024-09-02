@@ -43,7 +43,7 @@ export interface ProjectDetail {
 export type PortfolioResponse = () => Promise<Portfolio>;
 
 export const getPortfolio: PortfolioResponse = async () => {
-  const res = await fetch("https://api.isamin.kr").then((res) => res.json());
+  const res = await fetch("https://api.portfolio.codes").then((res) => res.json());
 
   return res;
 };
@@ -51,7 +51,7 @@ export const getPortfolio: PortfolioResponse = async () => {
 export type ProjectResponse = (key: string) => Promise<ProjectDetail>;
 
 export const getProject: ProjectResponse = async (key) => {
-  const res = await fetch(`https://api.isamin.kr/project/${key}`).then(
+  const res = await fetch(`https://api.portfolio.codes/project/${key}`).then(
     (res) => {
       if (res.ok) {
         return res.json();

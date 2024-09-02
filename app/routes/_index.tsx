@@ -56,11 +56,11 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
     },
     {
       property: "og:url",
-      content: "https://portfolio.isamin.kr",
+      content: "https://portfolio.codes",
     },
     {
       property: "og:image",
-      content: "https://assets.isamin.kr/profile.jpg",
+      content: "https://assets.portfolio.codes/profile.jpg",
     },
     {
       property: "og:image:type",
@@ -103,7 +103,7 @@ const Index = () => {
           <div className={styles.side}>
             <div className={styles.mix}>
               <div className={styles.header}>
-                <img alt="profile" src="https://assets.isamin.kr/profile.jpg" />
+                <img alt="profile" src="https://assets.portfolio.codes/profile.jpg" />
                 <div>
                   <p>{strings.hello[currentLanguage]}</p>
                   <p>{strings.name[currentLanguage]}</p>
@@ -190,14 +190,14 @@ const Index = () => {
                         <div
                           className={styles.preview}
                           style={{
-                            backgroundImage: `url(https://assets.isamin.kr/cover/${project.key}.webp)`,
+                            backgroundImage: `url(https://assets.portfolio.codes/cover/${project.key}.webp)`,
                           }}
                         />
                         <div className={styles.info}>
                           <img
                             className={styles.thumbnail}
                             alt={`${project.key} thumbnail`}
-                            src={`https://assets.isamin.kr/project/${project.key}.webp`}
+                            src={`https://assets.portfolio.codes/project/${project.key}.webp`}
                           />
                           <div className={styles.text}>
                             <p className={styles.name}>
