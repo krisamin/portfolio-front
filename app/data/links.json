@@ -10,6 +10,11 @@
     "icon": "instagram"
   },
   {
+    "name": "krisamin:self.land",
+    "url": "https://matrix.to/#/@krisamin:self.land",
+    "icon": "matrix"
+  },
+  {
     "name": "admin@isamin.kr",
     "url": "mailto:admin@isamin.kr",
     "icon": "email"
